@@ -5,6 +5,8 @@ Smart Cane for Visually Impaired: An Arduino-based assistive device that uses ul
 
 .ESP32-CAM: the project requires object detection using AI, voice feedback, and wireless communication — features that aren't practical or even possible with the Arduino Uno or Mega alone.
 
+.Ultrasonic sensor module | HC-SR04(5pieces): measures the distance to objects in front of the user and alerts them if something is too close
+
 .DFPlayer Mini MP3 Module: Plays pre-recorded MP3 files (e.g., object names)
 
 .MicroSD Card (with adapter): Stores the MP3 audio files used by DFPlayer
@@ -29,6 +31,6 @@ Smart Cane for Visually Impaired: An Arduino-based assistive device that uses ul
 
 .USB to TTL Adapter: Uploads code to ESP32-CAM and powers it during development
 
-
+.jumper wires female-to-female male-to-male female-to-male: for wirings
 
 
