@@ -7,12 +7,18 @@ TinyGPSPlus gps;
 
 const int buttonPin = 7;
 
+const int waterSensorPin = 28;  // PA6 / Analog pin 6  
+const int trigPin = 25;     // Ultrasonic Trigger pin
+const int echoPin = 27;     // Ultrasonic Echo pin
+const int buzzerPin = 26;   // Buzzer control pin    // PA7 / Analog pin 7
+
 void setup() {
     /* Ali
   pinMode(ledPin, OUTPUT);
   Serial.begin(9600); 
   */
 
+  /* Serena
   pinMode(buttonPin, INPUT);
   Serial.begin(9600);    // Debug only
   Serial1.begin(9600);   // GPS
@@ -22,6 +28,13 @@ void setup() {
   sendCommand("AT");
   sendCommand("AT+CMGF=1");
   sendCommand("AT+CSCS=\"GSM\"");
+  */
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+   pinMode(waterSensorPin, INPUT);   // Read water sensor signal (S pin)
+     
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -37,6 +50,8 @@ void loop() {
 
   delay(200);
   */
+
+  /* Serena
   while (Serial1.available()) {
     gps.encode(Serial1.read());
   }
@@ -70,4 +85,42 @@ void sendEmergencySMS() {
   } else {
     Serial.println("GPS not ready");
   }
+  */
+  int waterState = digitalRead(waterSensorPin);
+
+  if (waterState == HIGH) {  // LOW means water is detected
+    Serial.println("⚠️ Water Detected!");
+    digitalWrite(buzzerPin, HIGH);  // Turn ON buzzer
+  } else {
+    Serial.println("✅ No Water");
+    digitalWrite(buzzerPin, LOW);   // Turn OFF buzzer
+  }
+
+  delay(300); // Wait a bit
+   // Send ultrasonic pulse
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Read echo response time
+  long duration = pulseIn(echoPin, HIGH);
+
+  // Convert to distance (cm)
+  float distance = duration * 0.034 / 2;
+
+  // Print to Serial Monitor
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  // Activate buzzer if object is too close
+  if (distance > 0 && distance < 15) {
+    digitalWrite(buzzerPin, HIGH);
+  } else {
+    digitalWrite(buzzerPin, LOW);
+  }
+
+  delay(300); // Stabilize readings
 }
