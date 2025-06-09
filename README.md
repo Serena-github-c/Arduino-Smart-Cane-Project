@@ -1,7 +1,7 @@
 # Arduino Smart Cane Project
 
 **Smart Cane for Visually Impaired:**  
-An Arduino-based assistive device that uses ultrasonic sensors to detect nearby obstacles and water puddles.  
+An Arduino Mega 2560-based assistive device that uses ultrasonic sensors to detect nearby obstacles and water puddles.  
 It provides real-time feedback through **vibrations** and a **buzzer**.  
 The system also uses a **speaker** to read alerts aloud and integrates **GPS** for location tracking and **navigation assistance**.
 
@@ -20,7 +20,6 @@ The system also uses a **speaker** to read alerts aloud and integrates **GPS** f
 ## 🚧 Potential Future Features
 - 🔋 **Battery Low Alert** *(easy to implement)*
 - 🚑 **Fall Detection** *(needs more work)*
-- 📸 **Camera Emergency Snapshot** *(easy if ESP32-CAM used)*
 - 📏 **Obstacle Height Detection**
 
 ---
@@ -29,7 +28,7 @@ The system also uses a **speaker** to read alerts aloud and integrates **GPS** f
 
 | # | Component Name | Quantity | Function | 
 |---|----------------|----------|---------- |  
-| 1 | ESP32-WROOM-32 Development Board | 1 |  Acts as the main brain of the project,  Manages sensors, processes data, controls outputs via UART, I2C, GPIO. |
+| 1 | Arduino Mega 2560 | 1 |  Acts as the main controller of the system. Manages sensors, processes input, and controls output via digital and analog I/O pins. |
 | 2 | HC-SR04 Ultrasonic Sensors | 5 | Detects nearby obstacles: sends sound pulse, measures echo return time, calculates distance |
 |---|----------------|----------|---------- | 
 | 3 | Mini Vibration Motor (3V–5V) | 1 | - Provides tactile feedback when obstacle detected |
@@ -54,17 +53,26 @@ The system also uses a **speaker** to read alerts aloud and integrates **GPS** f
 | 19 | 18650 Li-ion Rechargeable Batteries (3.7V 2000–3000mAh) | 2 | Main portable power source. |
 | 20 | TP4056 Battery Charging Module (with Protection) | 1 | Charges 18650 safely via USB. |
 | 21 | MT3608 Boost Converter (Step-Up 5V Module) | 1 | Boosts battery voltage to stable 5V. |
-| 22 | FTDI USB-to-TTL Module (CP2102) | 1 | Uploads code to ESP32-WROOM-32. |
+| 22 | USB Type-B Cable | 1 | Used to upload code directly to the Arduino Mega 2560 via USB. |
 | 23 | Jumper Wires (Male-Female, Male-Male, Female-Female) | Bunch of each type |
 | 24 | Slide Switch | 1 | Manually turns the smart cane on or off. |
 |---|----------------|----------|---------- | 
 ---
 
 ## 📜 Notes
-- ⚡ **Voltage Protection:** Use resistor dividers (10kΩ and 4.7kΩ) for HC-SR04 Echo pins to protect ESP32.
+- ⚡ **Voltage Protection:** Use resistor dividers (10kΩ and 4.7kΩ) for HC-SR04 Echo pins to protect Arduino Mega 2560 digital pins.
 - 🛡️ **Motor Protection:** Use a flyback diode (1N4007) across the vibration motor.
 - 🔋 **Power Management:** Batteries are charged using a TP4056 module and boosted to 5V via an MT3608 converter.
-- 🖥️ **Programming:** Use the FTDI USB-to-TTL adapter for initial code uploading to the ESP32.
+- 🖥️ **Programming:** Use a USB Type-B cable to upload the code directly to the Arduino Mega 2560 using the Arduino IDE.
 
 ---
 
+## 👥 Contributors
+
+This project was collaboratively developed by:
+
+- [@Ali-ghassan-yazbeck](https://github.com/Ali-ghassan-yazbeck)
+- [@Serena-github-c](https://github.com/Serena-github-c)     
+- [@zeinattar](https://github.com/zeinattar)
+
+All three contributors are engineering students who worked together on system design, code development, hardware integration, and documentation.
