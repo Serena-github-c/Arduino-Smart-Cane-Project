@@ -1,35 +1,56 @@
-# Arduino Smart Cane Project
+# Multifunctional Smart Cane for the Visually Impaired
 
-**Smart Cane for Visually Impaired:**  
-An Arduino Mega 2560-based assistive device that uses ultrasonic sensors to detect nearby obstacles and water puddles.  
-It provides real-time feedback through **vibrations** and a **buzzer**.  
-The system also uses a **speaker** to read alerts aloud and integrates **GPS** for location tracking and **navigation assistance**.
+This project is a smart assistive device designed to enhance mobility and safety for visually impaired individuals. Built using an **Arduino Mega 2560**, it integrates multiple sensors and modules to detect obstacles, provide environmental feedback, and send emergency alerts.
 
----
+## Features
 
-## 🚀 Features
-- 🔵 **Obstacle Detection**
-- 🎤 **Voice-Assisted Navigation**
-- 🌙 **Automatic Nighttime Lighting**
-- 🆘 **Emergency Button + SMS + Location Sharing**
-- 💧 **Water Detection**
+- **Obstacle Detection**: Uses three ultrasonic sensors (front, left, right) with audio feedback to guide direction.
+- **Light-Based LED Activation**: An LDR sensor automatically turns on an LED when ambient light is low.
+- **Water Hazard Detection**: A water sensor alerts the user to puddles or wet surfaces using an audio warning.
+- **GPS Tracking**: Continuously tracks location coordinates via a GPS module.
+- **Emergency Alert System**: Sends GPS location via email to a predefined emergency contact when a button is pressed.
+- **Audio Feedback**: Uses DFPlayer Mini to play voice commands like "go left", "go right", or "water detected".
 
----
+## Components Used
 
-## 🚧 Potential Future Features
-- 🔋 **Battery Low Alert** 
-- 🚑 **Fall Detection** 
-- 📏 **Obstacle Height Detection**
+- Arduino Mega 2560
+- HC-SR04 Ultrasonic Sensors (×3)
+- LDR + LED
+- HW-038 Water Sensor
+- DFPlayer Mini + Speaker
+- GPS Module (NEO-6M)
+- ESP32 with Wi-Fi (to send the emergency SMS)
+- Pushbuttons, battery, resistors, and supporting hardware
 
----
+## ⚙️ How It Works
 
+1. **Sensors scan the environment** for obstacles and hazards.
+2. **Voice commands guide the user** based on sensor input.
+3. **In low light**, the LED automatically turns on for visibility.
+4. **In emergencies**, the user can press a button to send their location via SMS.
+5. **Real-time location data** is printed to the serial monitor for logging and debugging.
 
+## 📁 Project Structure
 
-## 📜 Notes
-- ⚡ **Voltage Protection:** Use resistor dividers (10kΩ and 4.7kΩ) for HC-SR04 Echo pins to protect Arduino Mega 2560 digital pins.
-- 🛡️ **Motor Protection:** Use a flyback diode (1N4007) across the vibration motor.
-- 🔋 **Power Management:** Batteries are charged using a TP4056 module and boosted to 5V via an MT3608 converter.
-- 🖥️ **Programming:** Use a USB Type-B cable to upload the code directly to the Arduino Mega 2560 using the Arduino IDE.
+- `hardware code/` – Arduino source code + ESP32 emergency button code
+- `Proteus Simulation/` – Schema + code
+- `media/` – Images, schematic photos, demo videos
+
+## 📷 Demo
+
+![Smart Cane Diagram](media/diagram.png)  
+*Image: Top-down view of components and wiring*
+
+## 🧠 Future Improvements
+
+- Add vibration motor for silent alerts
+- Improve power efficiency for longer battery life
+- Integrate voice-to-text commands
+- Compact PCB layout for wearable design
+
+## 📄 License
+
+This project is for academic purposes under the [MIT License](LICENSE).
 
 ---
 
