@@ -38,8 +38,13 @@ This project is a smart assistive device designed to enhance mobility and safety
 
 ## 📷 Demo
 
+<<<<<<< HEAD
 ![Smart Cane Diagram](media/cane -front view.png)  
 *Image: Front view of prototype*
+=======
+![Smart Cane Diagram](media/diagram.png)  
+*Image: Top-down view of components and wiring*
+>>>>>>> cd9f0c475806ad5374f60b75c6dec597cd8b11a1
 
 ## 🧠 Future Improvements
 
