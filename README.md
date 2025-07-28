@@ -22,7 +22,7 @@ This project is a smart assistive device designed to enhance mobility and safety
 - ESP32 with Wi-Fi (to send the emergency SMS)
 - Pushbuttons, battery, resistors, and supporting hardware
 
-## ⚙️ How It Works
+## How It Works
 
 1. **Sensors scan the environment** for obstacles and hazards.
 2. **Voice commands guide the user** based on sensor input.
@@ -30,36 +30,34 @@ This project is a smart assistive device designed to enhance mobility and safety
 4. **In emergencies**, the user can press a button to send their location via SMS.
 5. **Real-time location data** is printed to the serial monitor for logging and debugging.
 
-## 📁 Project Structure
+## Project Structure
 
 - `hardware code/` – Arduino source code + ESP32 emergency button code
 - `Proteus Simulation/` – Schema + code
 - `media/` – Images, schematic photos, demo videos
 
-## 📷 Demo
+## Demo
 
-<<<<<<< HEAD
 ![Smart Cane Diagram](media/cane -front view.png)  
 *Image: Front view of prototype*
-=======
-![Smart Cane Diagram](media/diagram.png)  
-*Image: Top-down view of components and wiring*
->>>>>>> cd9f0c475806ad5374f60b75c6dec597cd8b11a1
+![Cane Side view](<media/cane - side view.jpeg>)
 
-## 🧠 Future Improvements
+> Consult the /media folder for demo videos
+
+## Future Improvements
 
 - Add vibration motor for silent alerts
 - Improve power efficiency for longer battery life
 - Integrate voice-to-text commands
 - Compact PCB layout for wearable design
 
-## 📄 License
+## License
 
 This project is for academic purposes under the [MIT License](LICENSE).
 
 ---
 
-## 👥 Contributors
+## Contributors
 
 This project was collaboratively developed by:
 
